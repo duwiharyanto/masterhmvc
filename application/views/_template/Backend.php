@@ -49,6 +49,7 @@
     background-color:#6372E6
   }
 </style>
+<?php date_default_timezone_set('Asia/Jakarta')?>
 <body>
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
