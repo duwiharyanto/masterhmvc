@@ -96,7 +96,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="<?= base_url()?>/dist/index" ><span style="font-size:28px" class="fab fa-gripfire"></span> <?= $this->session->userdata('sistem') ? $this->session->userdata('sistem'): $setting['sistem']?> </a>
+            <a href="<?= base_url()?>/dist/index" ><span style="font-size:28px" class="fab fa-slack-hash"></span> <?= $this->session->userdata('sistem') ? $this->session->userdata('sistem'): $setting['sistem']?> </a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="<?= base_url()?>/dist/index">St</a>
