@@ -17,7 +17,7 @@
 					<?php foreach($data AS $row):?>
 						<tr>
 							<td><?=$i?></td>
-							<td><?=ucwords($row->level_nama)?></td>
+							<td><?=ucwords($row->level_nama)?><br /> Param : <?=$row->level_id?></td>
 							<td><?=ucwords($row->level_status ? 'aktif':'disable')?></td>
 							<td><?=ucwords($row->level_dashboard)?></td>
 							<td><?= date('d-m-Y',strtotime($row->created_at))?></td>

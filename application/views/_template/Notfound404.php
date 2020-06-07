@@ -28,7 +28,7 @@
             </div>
             <div class="page-search">
               <div class="mt-3">
-                <a href="<?=site_url()?>">Kembali</a>
+                <a href="<?=$url?>">Kembali</a>
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
   <script src="<?=base_url()?>/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
   <script src="<?=base_url()?>/assets/modules/moment.min.js"></script>
   <script src="<?=base_url()?>/assets/js/stisla.js"></script>
-  
+
   <!-- JS Libraies -->
 
   <!-- Page Specific JS File -->

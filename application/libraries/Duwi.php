@@ -31,7 +31,7 @@ class Duwi {
 	        $size += is_file($each) ? filesize($each) : $this->folderSize($each);
 	    }
 			return $size;
-	}  
+	}
 	public function ujicobalib($param){
 		echo "<pre>";
 		print_r($param);
@@ -55,7 +55,8 @@ class Duwi {
 		}
 		if(!$aksesmenu){
 			if($this->_LOAD->session->userdata('user_login')){
-				redirect(site_url('Notfound'));
+        //JIKA USER LOGIN
+				redirect(site_url($this->_LOAD->session->userdata('user_dashboard')));
 			}else{
 				$this->_LOAD->session->set_flashdata('error','Akses ditolak');
 				redirect(site_url('Login'));
@@ -71,7 +72,7 @@ class Duwi {
 	}
 	public function ceklogin(){
 		if($this->_LOAD->session->userdata('user_login')==true){
-			redirect(site_url('dashboard/dashboard'));
+			redirect(site_url($this->_LOAD->session->userdata('user_dashboard')));
 		}
 	}
 	public function nomorurut($param){
@@ -300,7 +301,7 @@ class Duwi {
 		$_aksesmenu=$this->_LOAD->Mdb->read($akses_menu)->result();
 		$menu_akhir=array();
 		foreach ($_aksesmenu as $index => $var) {
-			$_akseslevel=explode(',', $var->menu_akses_level);
+			$_akseslevel=explode(',', $var->menu_akses_level); //EXPLOADE AKSES MENU
 			foreach ($_akseslevel as $_userakses) {
 				if($levelakses==$_userakses){
 					$menu_akhir[$index]=$var;
@@ -329,7 +330,7 @@ class Duwi {
 						}
 					}
 				}
-			}
+			} //END LOOPING MENU
 		}
 		return $menu_akhir;
 	}

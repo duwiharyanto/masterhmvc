@@ -9,9 +9,9 @@ class Dokumentasi extends MY_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		//$this->duwi->listakses($this->session->userdata('user_level'));
-		// $this->duwi->cekadmin();
-		$this->leveluser=1;
+		// $this->duwi->listakses($this->session->userdata('user_level'));
+		//$this->duwi->cekadmin();
+		$this->user_level=$this->session->userdata('user_level');
 	}
 	public function setting(){
 		$setting=[
@@ -27,7 +27,7 @@ class Dokumentasi extends MY_Controller {
 		$data=[
 			'konten'=>$this->load->view('Dokumentasi',$this->setting(),TRUE),
 			'setting'=>$this->setting(),
-			'menu'=>$this->duwi->menu_backend($this->leveluser),
+			'menu'=>$this->duwi->menu_backend($this->user_level),
 		];
 		backend($data);
 	}

@@ -10,8 +10,8 @@ class Dashboard extends MY_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->duwi->listakses($this->session->userdata('user_level'));
-		// $this->duwi->cekadmin();
-		$this->leveluser=1;
+		//$this->duwi->cekadmin();
+		$this->user_level=$this->session->userdata('user_level');
 	}
 	public function setting($set=null){
 		$setting=[
@@ -44,7 +44,7 @@ class Dashboard extends MY_Controller {
 		$data=[
 			'konten'=>$this->load->view('Konten',$this->setting($set),TRUE),
 			'setting'=>$this->setting(),
-			'menu'=>$this->duwi->menu_backend($this->leveluser),
+			'menu'=>$this->duwi->menu_backend($this->user_level),
 		];
 		backend($data);
 	}

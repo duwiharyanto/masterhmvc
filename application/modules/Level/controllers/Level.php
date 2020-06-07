@@ -8,8 +8,8 @@ class Level extends MY_Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->duwi->listakses($this->session->userdata('user_level'));
 		$this->user_level=$this->session->userdata('user_level');
+		$this->duwi->listakses($this->session->userdata('user_level'));
 		// $this->duwi->cekadmin();
 	}
 	private $tabel='level';
