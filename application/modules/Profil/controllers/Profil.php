@@ -70,6 +70,8 @@ class Profil extends MY_Controller {
 					$this->hapus_file($id);
 					$fileupload=$this->upload->data('file_name');
 					$data[$file]=$fileupload;
+					//UPDATE SESSION
+					$this->session->set_userdata('user_foto',$data[$file]);					
 				}else{
 					$msg=$this->upload->display_errors();
 					$dt=toastupload('error',$msg);
@@ -83,8 +85,6 @@ class Profil extends MY_Controller {
 			];
 			$r=$this->Mdb->update($q);
 			if($q){
-				//UPDATE SESSION
-				$this->session->set_userdata('user_foto',$data[$file]);
 				$dt=toastupdate('success','sistem');
 			}else{
 				$dt=toastupdate('error','sistem');

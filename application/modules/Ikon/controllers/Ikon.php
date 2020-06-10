@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dokumentasi extends MY_Controller {
+class Ikon extends MY_Controller {
 
 	/**
 	 * Email haryanto.duwi@gmail.com
@@ -14,23 +14,18 @@ class Dokumentasi extends MY_Controller {
 		$this->user_level=$this->session->userdata('user_level');
 	}
 	public function setting(){
-		$q_activity=[
-			'tabel'=>'activity',
-			'order'=>['kolom'=>'created_at','orderby'=>'DESC'],
-		];
 		$setting=[
 			'sistem'=>'Starnode',
-			'menu'=>'dokumentasi',
-			'submenu'=>false,
-			'url'=>base_url('Dokumentasi'),
-			'activity'=>$this->Mdb->read($q_activity)->result(),
+			'menu'=>'setting',
+			'submenu'=>'ikon',
+			'url'=>base_url('Ikon'),
 		];
 		return $setting;
 	}
 	public function index()
 	{
 		$data=[
-			'konten'=>$this->load->view('Dokumentasi',$this->setting(),TRUE),
+			'konten'=>$this->load->view('Ikon',$this->setting(),TRUE),
 			'setting'=>$this->setting(),
 			'menu'=>$this->duwi->menu_backend($this->user_level),
 		];
