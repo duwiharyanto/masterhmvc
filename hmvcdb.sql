@@ -5,17 +5,36 @@
  Source Server Type    : MySQL
  Source Server Version : 100131
  Source Host           : localhost:3306
- Source Schema         : ithelpdesk
+ Source Schema         : backendhmvc
 
  Target Server Type    : MySQL
  Target Server Version : 100131
  File Encoding         : 65001
 
- Date: 08/05/2020 13:02:25
+ Date: 10/06/2020 21:40:20
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for activity
+-- ----------------------------
+DROP TABLE IF EXISTS `activity`;
+CREATE TABLE `activity`  (
+  `activity_id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_nama` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `activity_ikon` varchar(30) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `activity_status` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+  PRIMARY KEY (`activity_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of activity
+-- ----------------------------
+INSERT INTO `activity` VALUES (1, 'fix error update profil user', 'fas fa-user', 'bg-primary', '2020-06-10 21:33:37');
+INSERT INTO `activity` VALUES (2, 'penambahan menu ikon untuk admin', 'fab fa-stack-exchange', 'bg-primary', '2020-06-10 21:33:40');
 
 -- ----------------------------
 -- Table structure for level
@@ -35,7 +54,6 @@ CREATE TABLE `level`  (
 -- ----------------------------
 INSERT INTO `level` VALUES (1, 'Administrator', b'1', '2020-02-16 21:22:59', 'dashboard/dashboard');
 INSERT INTO `level` VALUES (2, 'User', b'1', '2020-02-15 08:59:01', 'dashboard/dashboard');
-INSERT INTO `level` VALUES (3, 'notulen', b'1', '2020-02-15 08:53:02', 'notulen/index');
 INSERT INTO `level` VALUES (11, 'Manajer', b'1', '2020-03-27 21:55:34', 'Dashboard/dashboard');
 
 -- ----------------------------
@@ -49,7 +67,7 @@ CREATE TABLE `log`  (
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   `log_level` varchar(3) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 265 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 374 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log
@@ -270,6 +288,115 @@ INSERT INTO `log` VALUES (261, 1, 'logout', '2020-05-08 12:54:10', '3');
 INSERT INTO `log` VALUES (262, 1, 'login', '2020-05-08 12:54:28', '1');
 INSERT INTO `log` VALUES (263, 1, 'logout', '2020-05-08 12:59:51', '3');
 INSERT INTO `log` VALUES (264, 1, 'login', '2020-05-08 13:01:07', '1');
+INSERT INTO `log` VALUES (265, 1, 'login', '2020-05-16 18:57:54', '1');
+INSERT INTO `log` VALUES (266, 1, 'logout', '2020-05-16 23:11:12', '3');
+INSERT INTO `log` VALUES (267, 1, 'login', '2020-05-17 10:05:49', '1');
+INSERT INTO `log` VALUES (268, 1, 'login', '2020-05-21 12:12:55', '1');
+INSERT INTO `log` VALUES (269, 1, 'logout', '2020-05-21 13:14:50', '3');
+INSERT INTO `log` VALUES (270, 29, 'login', '2020-05-21 13:14:53', '1');
+INSERT INTO `log` VALUES (271, 29, 'logout', '2020-05-21 13:15:42', '3');
+INSERT INTO `log` VALUES (272, 1, 'login', '2020-05-21 13:16:00', '1');
+INSERT INTO `log` VALUES (273, 1, 'logout', '2020-05-21 13:16:45', '3');
+INSERT INTO `log` VALUES (274, 29, 'login', '2020-05-21 13:16:53', '1');
+INSERT INTO `log` VALUES (275, 29, 'logout', '2020-05-21 13:23:54', '3');
+INSERT INTO `log` VALUES (276, 29, 'login', '2020-05-21 13:24:01', '1');
+INSERT INTO `log` VALUES (277, 29, 'logout', '2020-05-21 13:24:14', '3');
+INSERT INTO `log` VALUES (278, 1, 'login', '2020-05-21 13:24:19', '1');
+INSERT INTO `log` VALUES (279, 1, 'logout', '2020-05-21 13:24:41', '3');
+INSERT INTO `log` VALUES (280, 12, 'login', '2020-05-21 13:24:44', '1');
+INSERT INTO `log` VALUES (281, 12, 'logout', '2020-05-21 13:25:05', '3');
+INSERT INTO `log` VALUES (282, 1, 'login', '2020-05-21 13:25:18', '1');
+INSERT INTO `log` VALUES (283, 1, 'logout', '2020-05-21 14:10:38', '3');
+INSERT INTO `log` VALUES (284, 1, 'login', '2020-05-21 14:10:49', '1');
+INSERT INTO `log` VALUES (285, 1, 'logout', '2020-05-21 14:12:59', '3');
+INSERT INTO `log` VALUES (286, 29, 'login', '2020-05-21 14:13:07', '1');
+INSERT INTO `log` VALUES (287, 29, 'logout', '2020-05-21 14:13:50', '3');
+INSERT INTO `log` VALUES (288, 1, 'login', '2020-05-21 14:13:53', '1');
+INSERT INTO `log` VALUES (289, 1, 'logout', '2020-05-21 14:14:15', '3');
+INSERT INTO `log` VALUES (290, 1, 'login', '2020-05-21 14:14:18', '1');
+INSERT INTO `log` VALUES (291, 1, 'logout', '2020-05-21 14:14:37', '3');
+INSERT INTO `log` VALUES (292, 29, 'login', '2020-05-21 14:15:41', '1');
+INSERT INTO `log` VALUES (293, 29, 'logout', '2020-05-21 14:15:58', '3');
+INSERT INTO `log` VALUES (294, 29, 'login', '2020-05-21 14:16:02', '1');
+INSERT INTO `log` VALUES (295, 1, 'login', '2020-05-21 19:27:27', '1');
+INSERT INTO `log` VALUES (296, 1, 'logout', '2020-05-21 21:47:15', '3');
+INSERT INTO `log` VALUES (297, 1, 'login', '2020-05-21 21:47:26', '1');
+INSERT INTO `log` VALUES (298, 1, 'login', '2020-05-28 20:38:29', '1');
+INSERT INTO `log` VALUES (299, 1, 'logout', '2020-05-28 20:47:46', '3');
+INSERT INTO `log` VALUES (300, 1, 'login', '2020-05-28 20:47:52', '1');
+INSERT INTO `log` VALUES (301, 1, 'login', '2020-05-30 08:03:03', '1');
+INSERT INTO `log` VALUES (302, 1, 'logout', '2020-05-30 09:59:25', '3');
+INSERT INTO `log` VALUES (303, 1, 'login', '2020-05-30 10:19:23', '1');
+INSERT INTO `log` VALUES (304, 1, 'login', '2020-05-30 17:25:29', '1');
+INSERT INTO `log` VALUES (305, 1, 'logout', '2020-05-30 17:36:52', '3');
+INSERT INTO `log` VALUES (306, 1, 'login', '2020-05-30 17:36:55', '1');
+INSERT INTO `log` VALUES (307, 1, 'logout', '2020-05-30 17:39:43', '3');
+INSERT INTO `log` VALUES (308, 1, 'login', '2020-05-30 17:39:46', '1');
+INSERT INTO `log` VALUES (309, 1, 'login', '2020-05-30 17:40:00', '1');
+INSERT INTO `log` VALUES (310, 1, 'logout', '2020-05-30 17:40:34', '3');
+INSERT INTO `log` VALUES (311, 1, 'login', '2020-05-30 17:40:36', '1');
+INSERT INTO `log` VALUES (312, 1, 'logout', '2020-05-30 17:41:00', '3');
+INSERT INTO `log` VALUES (313, 1, 'login', '2020-05-30 17:41:20', '1');
+INSERT INTO `log` VALUES (314, 1, 'logout', '2020-05-30 17:42:01', '3');
+INSERT INTO `log` VALUES (315, 1, 'login', '2020-05-30 17:42:04', '1');
+INSERT INTO `log` VALUES (316, 1, 'logout', '2020-05-30 17:42:29', '3');
+INSERT INTO `log` VALUES (317, 1, 'login', '2020-05-30 17:42:31', '1');
+INSERT INTO `log` VALUES (318, 1, 'login', '2020-05-30 17:42:46', '1');
+INSERT INTO `log` VALUES (319, 1, 'login', '2020-05-30 17:43:08', '1');
+INSERT INTO `log` VALUES (320, 1, 'logout', '2020-05-30 17:43:13', '3');
+INSERT INTO `log` VALUES (321, 1, 'login', '2020-05-30 17:43:16', '1');
+INSERT INTO `log` VALUES (322, 1, 'logout', '2020-05-30 17:43:19', '3');
+INSERT INTO `log` VALUES (323, 1, 'login', '2020-05-30 17:43:49', '1');
+INSERT INTO `log` VALUES (324, 1, 'logout', '2020-05-30 17:45:33', '3');
+INSERT INTO `log` VALUES (325, 1, 'login', '2020-05-30 17:45:35', '1');
+INSERT INTO `log` VALUES (326, 1, 'logout', '2020-05-30 17:45:39', '3');
+INSERT INTO `log` VALUES (327, 1, 'login', '2020-05-30 17:46:01', '1');
+INSERT INTO `log` VALUES (328, 1, 'logout', '2020-05-30 17:46:06', '3');
+INSERT INTO `log` VALUES (329, 1, 'login', '2020-05-30 17:46:21', '1');
+INSERT INTO `log` VALUES (330, 1, 'login', '2020-05-31 08:51:07', '1');
+INSERT INTO `log` VALUES (331, 1, 'logout', '2020-05-31 09:21:55', '3');
+INSERT INTO `log` VALUES (332, 1, 'login', '2020-05-31 09:29:14', '1');
+INSERT INTO `log` VALUES (333, 1, 'logout', '2020-05-31 09:32:14', '3');
+INSERT INTO `log` VALUES (334, 1, 'login', '2020-05-31 09:32:39', '1');
+INSERT INTO `log` VALUES (335, 1, 'logout', '2020-05-31 09:44:58', '3');
+INSERT INTO `log` VALUES (336, 29, 'login', '2020-05-31 09:45:07', '1');
+INSERT INTO `log` VALUES (337, 29, 'logout', '2020-05-31 09:45:39', '3');
+INSERT INTO `log` VALUES (338, 1, 'login', '2020-05-31 09:45:42', '1');
+INSERT INTO `log` VALUES (339, 1, 'logout', '2020-05-31 12:36:07', '3');
+INSERT INTO `log` VALUES (340, 1, 'login', '2020-05-31 12:37:32', '1');
+INSERT INTO `log` VALUES (341, 1, 'login', '2020-06-02 06:03:50', '1');
+INSERT INTO `log` VALUES (342, 1, 'logout', '2020-06-02 06:04:01', '3');
+INSERT INTO `log` VALUES (343, 1, 'login', '2020-06-07 09:55:36', '1');
+INSERT INTO `log` VALUES (344, 1, 'logout', '2020-06-07 09:59:14', '3');
+INSERT INTO `log` VALUES (345, 12, 'login', '2020-06-07 09:59:19', '1');
+INSERT INTO `log` VALUES (346, 12, 'logout', '2020-06-07 09:59:50', '3');
+INSERT INTO `log` VALUES (347, 1, 'login', '2020-06-07 09:59:53', '1');
+INSERT INTO `log` VALUES (348, 12, 'login', '2020-06-07 10:01:41', '1');
+INSERT INTO `log` VALUES (349, 12, 'logout', '2020-06-07 10:02:47', '3');
+INSERT INTO `log` VALUES (350, 12, 'login', '2020-06-07 10:02:50', '1');
+INSERT INTO `log` VALUES (351, 12, 'logout', '2020-06-07 10:12:07', '3');
+INSERT INTO `log` VALUES (352, 12, 'login', '2020-06-07 10:12:12', '1');
+INSERT INTO `log` VALUES (353, 12, 'logout', '2020-06-07 10:14:17', '3');
+INSERT INTO `log` VALUES (354, 12, 'login', '2020-06-07 10:14:21', '1');
+INSERT INTO `log` VALUES (355, 12, 'logout', '2020-06-07 10:14:33', '3');
+INSERT INTO `log` VALUES (356, 12, 'login', '2020-06-07 10:15:28', '1');
+INSERT INTO `log` VALUES (357, 12, 'logout', '2020-06-07 10:17:11', '3');
+INSERT INTO `log` VALUES (358, 12, 'login', '2020-06-07 10:17:17', '1');
+INSERT INTO `log` VALUES (359, 12, 'logout', '2020-06-07 10:32:03', '3');
+INSERT INTO `log` VALUES (360, 1, 'login', '2020-06-07 10:32:10', '1');
+INSERT INTO `log` VALUES (361, 1, 'logout', '2020-06-07 10:32:12', '3');
+INSERT INTO `log` VALUES (362, 12, 'login', '2020-06-07 10:32:16', '1');
+INSERT INTO `log` VALUES (363, 12, 'logout', '2020-06-07 10:32:28', '3');
+INSERT INTO `log` VALUES (364, NULL, 'logout', '2020-06-07 10:32:30', '3');
+INSERT INTO `log` VALUES (365, 12, 'login', '2020-06-07 10:32:33', '1');
+INSERT INTO `log` VALUES (366, 12, 'logout', '2020-06-07 10:56:26', '3');
+INSERT INTO `log` VALUES (367, 1, 'login', '2020-06-07 10:56:33', '1');
+INSERT INTO `log` VALUES (368, 1, 'logout', '2020-06-07 10:56:37', '3');
+INSERT INTO `log` VALUES (369, 12, 'login', '2020-06-07 10:56:40', '1');
+INSERT INTO `log` VALUES (370, 12, 'logout', '2020-06-07 10:58:52', '3');
+INSERT INTO `log` VALUES (371, 1, 'login', '2020-06-10 20:58:41', '1');
+INSERT INTO `log` VALUES (372, 1, 'logout', '2020-06-10 20:59:07', '3');
+INSERT INTO `log` VALUES (373, 1, 'login', '2020-06-10 20:59:10', '1');
 
 -- ----------------------------
 -- Table structure for menu
@@ -288,16 +415,25 @@ CREATE TABLE `menu`  (
   `menu_baru` int(2) NULL DEFAULT NULL,
   `menu_label` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 172 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 182 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES (1, 'kontak', 'fas fa-fire', '0', 'Kontak', '2', 2, '1', 1, NULL, 'kontak');
-INSERT INTO `menu` VALUES (168, 'setting', 'fas fa-fire', '0', 'Setting', '1', 3, '1', 1, NULL, 'setting');
-INSERT INTO `menu` VALUES (169, 'dashboard', 'fas fa-fire', '0', 'Dashboard', '1', 1, '1', 1, NULL, 'dashboard');
+INSERT INTO `menu` VALUES (168, 'setting', 'fas fa-cogs', '0', 'Setting', '1', 3, '1', 1, NULL, 'setting');
+INSERT INTO `menu` VALUES (169, 'dashboard', 'fas fa-fire', '0', 'Dashboard', '1,2', 1, '1', 1, NULL, 'dashboard');
 INSERT INTO `menu` VALUES (170, 'hak_akses', 'fas fa-fire', '168', 'Hakakses', '1', 1, '1', 1, NULL, 'hak akses');
-INSERT INTO `menu` VALUES (171, 'log', 'fas fa-file', '0', 'Log', '1', 99, '1', 1, NULL, 'log sistem');
+INSERT INTO `menu` VALUES (171, 'log', 'fas fa-file', '0', 'Log', '1,2', 99, '1', 1, NULL, 'log sistem');
+INSERT INTO `menu` VALUES (172, 'sistem', 'fas fa-file', '168', 'Sistem', '1', 1, '1', 1, NULL, 'sistem');
+INSERT INTO `menu` VALUES (173, 'level', 'fas fa-file', '168', 'Level', '1', 2, '1', 1, NULL, 'level user');
+INSERT INTO `menu` VALUES (174, 'user', 'fas fa-user-cog', '168', 'User', '1', 3, '1', 1, NULL, 'user');
+INSERT INTO `menu` VALUES (175, 'backup', 'fas fa-file', '168', 'Backup', '1', 4, '1', 1, NULL, 'backup');
+INSERT INTO `menu` VALUES (176, 'profil', 'fas fa-user-cog', '0', 'Profil', '1,2', 5, '1', 1, NULL, 'profil user');
+INSERT INTO `menu` VALUES (177, 'laporan', 'fas fa-print', '0', 'Laporan', '1', 6, '1', 1, NULL, 'laporan');
+INSERT INTO `menu` VALUES (178, 'lap_log', 'fas fa-print', '177', 'Laporan/Log', '1,2', 1, '1', 1, NULL, 'laporan log');
+INSERT INTO `menu` VALUES (179, 'lap_user', 'fas fa-print', '177', 'Laporan/User', '1', 2, '1', 1, NULL, 'laporan user');
+INSERT INTO `menu` VALUES (180, 'filemanager', 'fas fa-print', '168', 'Filemanager', '1', 5, '1', 1, NULL, 'file manager');
+INSERT INTO `menu` VALUES (181, 'ikon', 'fas fa-fire', '168', 'Ikon', '1', 5, '1', 1, NULL, 'Ikon');
 
 -- ----------------------------
 -- Table structure for setting
@@ -311,6 +447,7 @@ CREATE TABLE `setting`  (
   `setting_email` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `setting_notlp` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `setting_logo` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `setting_tagline` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `setting_namapemilik` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`setting_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
@@ -318,7 +455,7 @@ CREATE TABLE `setting`  (
 -- ----------------------------
 -- Records of setting
 -- ----------------------------
-INSERT INTO `setting` VALUES (1, 'Dashboard', 'Array Motion', 'Jl.bantul Km 10', 'haryanto.duwi@gmail.com', '085725818424', 'd17eecb86d82aadff65edf6a6e062697.png', 'Duwi haryanto');
+INSERT INTO `setting` VALUES (1, 'Novasys', 'Array Motion', 'Jl.bantul Km 10', 'haryanto.duwi@gmail.com', '085725818424', '3663fdabf683f180798ed04287b0c189.png', 'System X', 'Duwi haryantoo');
 
 -- ----------------------------
 -- Table structure for user
@@ -342,10 +479,10 @@ CREATE TABLE `user`  (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Duwi Haryanto', 1, '2018-09-28 17:00:00', 'Admin@gmail.com', b'1', '2020-05-01 14:21:52', '0f399c2d6fa3cc467c01736f16eb0334.jpg', 'Dashboard');
+INSERT INTO `user` VALUES (1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 1, '2018-09-28 17:00:00', 'Admin@gmail.com', b'1', '2020-05-01 14:21:52', '42c47f96f8b16e06bd0457c52cd2825e.jpg', 'Dashboard');
 INSERT INTO `user` VALUES (3, 'haryanto', '8e7173cb9b869db115f77688e70b8ff7', 'haryanto duwi', 3, '2018-10-20 17:00:00', 'admin@gmail.com', b'1', '2020-05-01 14:21:49', NULL, 'Dashboard');
-INSERT INTO `user` VALUES (12, 'mita', 'bae3d929b274a4cd35c38fe92f059f1a', 'mita', 1, '2019-12-30 12:38:01', 'mitaduwi@gmail.com', b'1', '2020-05-01 14:21:47', NULL, 'Dashboard');
-INSERT INTO `user` VALUES (29, 'duwi', '3155e562d357a7c301d2ccafadb05e17', 'duwi haryanto', 10, '2019-12-30 14:14:49', 'haryanto.duwi@gmail.com', b'1', '2020-05-01 14:21:43', NULL, 'Dashboard');
+INSERT INTO `user` VALUES (12, 'mita', 'bae3d929b274a4cd35c38fe92f059f1a', 'mita', 2, '2019-12-30 12:38:01', 'mitaduwi@gmail.com', b'1', '2020-05-01 14:21:47', NULL, 'Log');
+INSERT INTO `user` VALUES (29, 'duwi', '21232f297a57a5a743894a0e4a801fc3', 'duwi haryanto', 1, '2019-12-30 14:14:49', 'haryanto.duwi@gmail.com', b'1', '2020-05-01 14:21:43', 'fc0d4f41ae0b26f20e8ebc480f5189c0.jpg', 'Dashboard');
 INSERT INTO `user` VALUES (35, 'mika', '07af613eea059030daaed3bde1fd1ce7', 'mika', 1, '2019-12-31 07:45:32', 'mika@gmail.com', b'1', '2020-01-02 10:15:30', NULL, 'Dashboard');
 INSERT INTO `user` VALUES (36, 'hanabi', 'd43fcce13f4c88fd28c279cc2859f579', 'hanabi', 3, '2020-01-06 17:23:31', 'hanabi@gmail.com', b'1', '2020-01-06 17:23:31', NULL, 'Dashboard');
 
