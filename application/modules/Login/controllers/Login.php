@@ -49,6 +49,14 @@ class Login extends MY_Controller {
 		];
 		login($data);
 	}
+	public function register()
+	{
+		$this->duwi->ceklogin();
+		$data=[
+			'setting'=>$this->setting(),
+		];
+		register($data);
+	}	
 	public function prosesauth(){
 		$data=[
 			'setting'=>$this->setting(),
