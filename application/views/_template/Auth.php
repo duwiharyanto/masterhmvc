@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title><?=ucwords($this->uri->segment(1))?> &mdash; <?=$setting[
+  <title><?= $this->uri->segment(1) ? ucwords($this->uri->segment(1)):'Home'?> &mdash; <?=$setting[
     'sistem']?></title>
   <link rel="icon" type="image/png" sizes="16x16" href="<?=base_url()?>favicon.ico">
   <!-- General CSS Files -->
@@ -46,7 +46,6 @@
                     <div class="invalid-feedback">
                       Please fill in your username
                     </div>
-                    <?php echo form_error('username'); ?>
                   </div>
 
                   <div class="form-group">
@@ -79,7 +78,7 @@
               </div>
             </div>
             <div class="mt-5 text-muted text-center">
-              Don't have an account? <a href="javascript:void(0)">Create One</a>
+              Belum punya akun ? <a href="<?=site_url('registrasi')?>">Buat</a>
             </div>
             <div class="simple-footer">
               <?=FOOTPRINT?>
