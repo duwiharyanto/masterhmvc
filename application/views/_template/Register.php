@@ -40,14 +40,14 @@
                   </div>
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="username" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
+                    <input id="email" type="text" class="form-control" name="email" tabindex="1"  autofocus value="<?= set_value('email'); ?>">
                     <div class="invalid-feedback">
                       Please fill in your username
                     </div>
                   </div>  
                   <div class="form-group">
                     <label for="email">Password</label>
-                    <input id="username" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
+                    <input id="pass" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
                     <div class="invalid-feedback">
                       Please fill in your username
                     </div>
