@@ -43,7 +43,7 @@
                   <form method="POST" action="<?=$setting['url'].'/prosesauth'?>" class="needs-validation" novalidate="">
                     <div class="form-group">
                       <label for="email">Username</label>
-                      <input id="username" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
+                      <input required id="username" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
                       <div class="invalid-feedback">
                         Please fill in your username
                       </div>
@@ -58,7 +58,7 @@
                           </a>
                         </div>
                       </div>
-                      <input id="password" type="password" class="form-control" name="password" tabindex="2" >
+                      <input required id="password" type="password" class="form-control" name="password" tabindex="2" >
                       <div class="invalid-feedback">
                         please fill in your password
                       </div>
@@ -75,7 +75,7 @@
                         Login
                       </button>
                     </div>
-                  </form>                  
+                  </form>
                 </div>
               </div>
             </div>

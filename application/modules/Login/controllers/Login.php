@@ -11,11 +11,51 @@ class Login extends MY_Controller {
 		// $this->duwi->listakses($this->session->userdata('user_level'));
 		// $this->duwi->cekadmin();
 	}
+	private $default_leveluser=2;
+	private $default_statususer=1; //AKTIF
+	private $default_dashboarduser='Dashboard';
 	public function validation(){
 		$config = array(
 		        array(
 		                'field' => 'username',
 		                'label' => 'Username',
+		                'rules' => 'required',
+		                'errors' => array(
+		                        'required' => '%s harus diisi.',
+		                ),
+		        ),
+		        array(
+		                'field' => 'password',
+		                'label' => 'Password',
+		                'rules' => 'required',
+		                'errors' => array(
+		                        'required' => 'You must provide a %s.',
+		                ),
+		        ),
+		);
+		$this->form_validation->set_rules($config);
+	}
+	public function validasiregistrasi(){
+		$config = array(
+		        array(
+		                'field' => 'username',
+		                'label' => 'Username',
+		                'rules' => 'required',
+		                'errors' => array(
+		                        'required' => '%s harus diisi.',
+		                ),
+		        ),
+						array(
+		                'field' => 'nama',
+		                'label' => 'Nama',
+		                'rules' => 'required',
+		                'errors' => array(
+		                        'required' => '%s harus diisi.',
+		                ),
+		        ),
+						array(
+		                'field' => 'email',
+		                'label' => 'Email',
 		                'rules' => 'required',
 		                'errors' => array(
 		                        'required' => '%s harus diisi.',
@@ -56,7 +96,39 @@ class Login extends MY_Controller {
 			'setting'=>$this->setting(),
 		];
 		register($data);
-	}	
+	}
+	public function prosesregistrasi(){
+		$this->validasiregistrasi();
+		if ($this->form_validation->run()){
+			$data=[
+				'user_nama'=>$this->input->post('nama'),
+				'user_username'=>$this->input->post('username'),
+				'user_email'=>$this->input->post('email'),
+				'user_password'=>md5($this->input->post('password')),
+				'user_level'=>$this->default_leveluser,
+				'user_status'=>$this->default_statususer,
+				'user_dashboard'=>$this->default_dashboarduser,
+			];
+			$q=[
+				'tabel'=>'user',
+				'data'=>$data,
+			];
+			$r=$this->Mdb->insert($q);
+			if($r){
+				$this->session->set_flashdata('success','Pendaftaran berhasil');
+			}else{
+				$this->session->set_flashdata('error','Pendaftaran gagal, silahkan cek kembali');
+			}
+			redirect(site_url('registrasi'));
+		}else{
+			$data=[
+				'setting'=>$this->setting(),
+			];
+			$this->session->set_flashdata('error','Kolom masih ada yang kosong !');
+			register($data);
+		}
+
+	}
 	public function prosesauth(){
 		$data=[
 			'setting'=>$this->setting(),

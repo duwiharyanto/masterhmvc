@@ -11,7 +11,7 @@
  Target Server Version : 100131
  File Encoding         : 65001
 
- Date: 10/06/2020 21:40:20
+ Date: 19/06/2020 22:22:03
 */
 
 SET NAMES utf8mb4;
@@ -28,13 +28,14 @@ CREATE TABLE `activity`  (
   `activity_status` varchar(50) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   PRIMARY KEY (`activity_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activity
 -- ----------------------------
 INSERT INTO `activity` VALUES (1, 'fix error update profil user', 'fas fa-user', 'bg-primary', '2020-06-10 21:33:37');
 INSERT INTO `activity` VALUES (2, 'penambahan menu ikon untuk admin', 'fab fa-stack-exchange', 'bg-primary', '2020-06-10 21:33:40');
+INSERT INTO `activity` VALUES (3, 'update form registrasi user', 'fas fa-user', 'bg-primary', '2020-06-19 22:17:55');
 
 -- ----------------------------
 -- Table structure for level
@@ -67,7 +68,7 @@ CREATE TABLE `log`  (
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   `log_level` varchar(3) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 374 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 377 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of log
@@ -397,6 +398,9 @@ INSERT INTO `log` VALUES (370, 12, 'logout', '2020-06-07 10:58:52', '3');
 INSERT INTO `log` VALUES (371, 1, 'login', '2020-06-10 20:58:41', '1');
 INSERT INTO `log` VALUES (372, 1, 'logout', '2020-06-10 20:59:07', '3');
 INSERT INTO `log` VALUES (373, 1, 'login', '2020-06-10 20:59:10', '1');
+INSERT INTO `log` VALUES (374, 29, 'login', '2020-06-19 22:14:49', '1');
+INSERT INTO `log` VALUES (375, 29, 'logout', '2020-06-19 22:14:54', '3');
+INSERT INTO `log` VALUES (376, 1, 'login', '2020-06-19 22:17:10', '1');
 
 -- ----------------------------
 -- Table structure for menu
@@ -474,7 +478,7 @@ CREATE TABLE `user`  (
   `user_foto` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   `user_dashboard` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 37 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of user
@@ -485,5 +489,6 @@ INSERT INTO `user` VALUES (12, 'mita', 'bae3d929b274a4cd35c38fe92f059f1a', 'mita
 INSERT INTO `user` VALUES (29, 'duwi', '21232f297a57a5a743894a0e4a801fc3', 'duwi haryanto', 1, '2019-12-30 14:14:49', 'haryanto.duwi@gmail.com', b'1', '2020-05-01 14:21:43', 'fc0d4f41ae0b26f20e8ebc480f5189c0.jpg', 'Dashboard');
 INSERT INTO `user` VALUES (35, 'mika', '07af613eea059030daaed3bde1fd1ce7', 'mika', 1, '2019-12-31 07:45:32', 'mika@gmail.com', b'1', '2020-01-02 10:15:30', NULL, 'Dashboard');
 INSERT INTO `user` VALUES (36, 'hanabi', 'd43fcce13f4c88fd28c279cc2859f579', 'hanabi', 3, '2020-01-06 17:23:31', 'hanabi@gmail.com', b'1', '2020-01-06 17:23:31', NULL, 'Dashboard');
+INSERT INTO `user` VALUES (44, 'paijo', '21232f297a57a5a743894a0e4a801fc3', 'paijo', 2, '2020-06-19 22:12:05', 'paijo@gmail.com', b'0', '2020-06-19 22:12:05', NULL, 'Dashboard');
 
 SET FOREIGN_KEY_CHECKS = 1;
