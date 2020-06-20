@@ -85,6 +85,7 @@ class Login extends MY_Controller {
 	{
 		$this->duwi->ceklogin();
 		$data=[
+			'konten'=>$this->load->view('auth',$this->setting(),true),
 			'setting'=>$this->setting(),
 		];
 		login($data);
@@ -93,6 +94,7 @@ class Login extends MY_Controller {
 	{
 		$this->duwi->ceklogin();
 		$data=[
+			'konten'=>$this->load->view('registrasi',$this->setting(),true),
 			'setting'=>$this->setting(),
 		];
 		register($data);

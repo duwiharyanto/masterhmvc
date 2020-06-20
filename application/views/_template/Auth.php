@@ -9,10 +9,8 @@
   <!-- General CSS Files -->
   <link rel="stylesheet" href="<?=base_url()?>assets/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/modules/fontawesome/css/all.min.css">
-
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="<?=base_url()?>assets/modules/bootstrap-social/bootstrap-social.css">
-
   <!-- Template CSS -->
   <link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
   <link rel="stylesheet" href="<?=base_url()?>assets/css/components.css">
@@ -28,60 +26,27 @@
               <img src="<?=base_url()?>assets/img/arraymotion.png" alt="logo" width="100" class="shadow-light rounded-circle">
               <h5 class="mt-3"><?=$setting['getsistem']->setting_tagline?></h5>
             </div>
+            <?php if($msg=$this->session->flashdata('success')):?>
+              <div class="alert alert-success alert-has-icon">
+                <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
+                <div class="alert-body">
+                  <div class="alert-title">Perhatian !!</div>
+                  <?= ucwords($msg)?>, <a href="<?=site_url()?>">Login</a>
+                </div>
+              </div>
+            <?php endif;?>
             <?php if($msg=$this->session->flashdata('error')):?>
               <div class="alert alert-danger alert-has-icon">
                 <div class="alert-icon"><i class="far fa-lightbulb"></i></div>
                 <div class="alert-body">
                   <div class="alert-title">Perhatian !!</div>
-                  <?= ucwords($msg); ?>
+                  <?= ucwords($msg)?>
                 </div>
               </div>
             <?php endif;?>
-            <div class="card card-primary">
-              <div class="card-body">
-                <div id="kontainderform">
-                  <form method="POST" action="<?=$setting['url'].'/prosesauth'?>" class="needs-validation" novalidate="">
-                    <div class="form-group">
-                      <label for="email">Username</label>
-                      <input required id="username" type="text" class="form-control" name="username" tabindex="1"  autofocus value="<?= set_value('username'); ?>">
-                      <div class="invalid-feedback">
-                        Please fill in your username
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="d-block">
-                        <label for="password" class="control-label">Password</label>
-                        <div class="float-right">
-                          <a href="javascript:void(0)" class="text-small">
-                            Forgot Password?
-                          </a>
-                        </div>
-                      </div>
-                      <input required id="password" type="password" class="form-control" name="password" tabindex="2" >
-                      <div class="invalid-feedback">
-                        please fill in your password
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                        <label class="custom-control-label" for="remember-me">Remember Me</label>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                        Login
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-            <div class="mt-5 text-muted text-center">
-              Belum punya akun ? <a href="<?=site_url('registrasi')?>">Buat</a>
-            </div>
+            <div id="kontainderform">
+              <?php print_r($konten)?>
+            </div>           
             <div class="simple-footer">
               <?=FOOTPRINT?>
             </div>
