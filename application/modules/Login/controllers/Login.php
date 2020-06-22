@@ -90,6 +90,12 @@ class Login extends MY_Controller {
 		];
 		login($data);
 	}
+	public function notif(){
+		$data=[
+			'view'=>$this->load->view('notif','',TRUE),
+		];
+		return $this->output->set_output(json_encode($data));
+	}
 	public function register()
 	{
 		$this->duwi->ceklogin();

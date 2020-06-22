@@ -18,11 +18,6 @@
 		$TEMPLATE =& get_instance();
 		$TEMPLATE->load->view($backend,$data);
 	}
-	function register($data=null){
-		$backend="_template/Register";
-		$TEMPLATE =& get_instance();
-		$TEMPLATE->load->view($backend,$data);
-	}	
 	function exportpdf($config){
 		$backend="_template/Cetakpdf";
 		$TEMPLATE =& get_instance();

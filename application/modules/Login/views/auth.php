@@ -38,12 +38,16 @@
     </form>
   </div>
 </div>
-<div id="notif"></div>
 <div class="mt-5 text-muted text-center">
   Belum punya akun ? <a href="<?=site_url('registrasi')?>">Buat</a>
 </div>
+<div id="notif" url="<?=$url.'/notif'?>"></div>
 <script type="text/javascript">
   $(document).ready(function(){
-    alert('login')
+    var url=$('#notif').attr('url');
+    $.getJSON(url, function(result){
+      $('#notif').html(result.view)
+      console.log(result.view);
+    })  
   })
 </script>
