@@ -97,7 +97,7 @@ class Login extends MY_Controller {
 			'konten'=>$this->load->view('registrasi',$this->setting(),true),
 			'setting'=>$this->setting(),
 		];
-		register($data);
+		login($data);
 	}
 	public function prosesregistrasi(){
 		$this->validasiregistrasi();

@@ -1,7 +1,7 @@
 <div class="card card-primary">
   <div class="card-header"><h4>Register</h4></div>
   <div class="card-body">
-    <form method="POST" action="<?=$setting['url'].'/prosesregistrasi'?>"  class="needs-validation" novalidate="">
+    <form method="POST" action="<?=$url.'/prosesregistrasi'?>"  class="needs-validation" novalidate="">
       <div class="form-group">
         <label for="email">Nama</label>
         <input  required  type="text" class="form-control" name="nama" tabindex="1"  autofocus value="<?= set_value('nama'); ?>">
