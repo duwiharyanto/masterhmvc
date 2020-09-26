@@ -54,13 +54,15 @@ class Duwi {
 			}
 		}
 		if(!$aksesmenu){
-			if($this->_LOAD->session->userdata('user_login')){
-        //JIKA USER LOGIN
-				redirect(site_url($this->_LOAD->session->userdata('user_dashboard')));
-			}else{
-				$this->_LOAD->session->set_flashdata('error','Akses ditolak');
-				redirect(site_url('Login'));
-			}
+			// if($this->_LOAD->session->userdata('user_login')){
+        	// 	//JIKA USER LOGIN
+			// 	redirect(site_url($this->_LOAD->session->userdata('user_dashboard')));
+			// }else{
+			// 	$this->_LOAD->session->set_flashdata('error','Akses ditolak');
+			// 	redirect(site_url('Login/logout'));
+			// }
+			$this->_LOAD->session->set_flashdata('error','Akses ditolak, hubungi administrator');
+			redirect(site_url('Login/aksesditolak'));			
 
 		}
 		//return $aksesmenu;

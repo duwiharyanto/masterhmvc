@@ -1,11 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Login extends MY_Controller {
-
+	
 	/**
-	 * Email haryanto.duwi@gmail.com
-	 */
-
+	* Email haryanto.duwi@gmail.com
+	*/
+	
 	public function __construct(){
 		parent::__construct();
 		// $this->duwi->listakses($this->session->userdata('user_level'));
@@ -16,59 +16,59 @@ class Login extends MY_Controller {
 	private $default_dashboarduser='Dashboard';
 	public function validation(){
 		$config = array(
-		        array(
-		                'field' => 'username',
-		                'label' => 'Username',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => '%s harus diisi.',
-		                ),
-		        ),
-		        array(
-		                'field' => 'password',
-		                'label' => 'Password',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => 'You must provide a %s.',
-		                ),
-		        ),
+			array(
+				'field' => 'username',
+				'label' => 'Username',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => '%s harus diisi.',
+				),
+			),
+			array(
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'You must provide a %s.',
+				),
+			),
 		);
 		$this->form_validation->set_rules($config);
 	}
 	public function validasiregistrasi(){
 		$config = array(
-		        array(
-		                'field' => 'username',
-		                'label' => 'Username',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => '%s harus diisi.',
-		                ),
-		        ),
-						array(
-		                'field' => 'nama',
-		                'label' => 'Nama',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => '%s harus diisi.',
-		                ),
-		        ),
-						array(
-		                'field' => 'email',
-		                'label' => 'Email',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => '%s harus diisi.',
-		                ),
-		        ),
-		        array(
-		                'field' => 'password',
-		                'label' => 'Password',
-		                'rules' => 'required',
-		                'errors' => array(
-		                        'required' => 'You must provide a %s.',
-		                ),
-		        ),
+			array(
+				'field' => 'username',
+				'label' => 'Username',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => '%s harus diisi.',
+				),
+			),
+			array(
+				'field' => 'nama',
+				'label' => 'Nama',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => '%s harus diisi.',
+				),
+			),
+			array(
+				'field' => 'email',
+				'label' => 'Email',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => '%s harus diisi.',
+				),
+			),
+			array(
+				'field' => 'password',
+				'label' => 'Password',
+				'rules' => 'required',
+				'errors' => array(
+					'required' => 'You must provide a %s.',
+				),
+			),
 		);
 		$this->form_validation->set_rules($config);
 	}
@@ -135,10 +135,11 @@ class Login extends MY_Controller {
 			$this->session->set_flashdata('error','Kolom masih ada yang kosong !');
 			register($data);
 		}
-
+		
 	}
 	public function prosesauth(){
 		$data=[
+			'konten'=>$this->load->view('auth',$this->setting(),true),
 			'setting'=>$this->setting(),
 		];
 		$this->validation();
@@ -195,12 +196,13 @@ class Login extends MY_Controller {
 							];
 							$this->session->set_userdata($sistem);
 							$this->session->set_flashdata('success','Selamat datang '.ucwords($dt_session->user_nama));
+							//LOGIN USER
 							redirect(site_url($dt_session->user_dashboard));
 						}else{
 							$this->session->set_flashdata('error','User anda belum di set halaman dashboard, kontak administrator');
 							login($data);
 						}
-
+						
 					}
 				}else{
 					$this->session->set_flashdata('error','Password & Username Salah');
@@ -224,8 +226,26 @@ class Login extends MY_Controller {
 		if(!$this->duwi->log($logdata)){
 			$this->session->set_flashdata('error','log tidak tercatat');
 			redirect(base_url('Login'));
-		}
+		}		
 		$this->session->sess_destroy();
 		redirect(site_url('Login'));
 	}
+	public function aksesditolak(){
+		$logdata=[
+			'aksi'=>'logout,karena akses ditolak',
+			'iduser'=>$this->session->userdata('user_id'),
+			'loglevel'=>3,
+		];
+		if(!$this->duwi->log($logdata)){
+			$this->session->set_flashdata('error','log tidak tercatat');
+			redirect(base_url('Login'));
+		}		
+		$this->session->sess_destroy();
+		$data=[
+			'konten'=>$this->load->view('auth',$this->setting(),true),
+			'setting'=>$this->setting(),
+			'aksesditolak'=>true,
+		];
+		login($data);
+	}	
 }
